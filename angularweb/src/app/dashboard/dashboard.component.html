@@ -1,0 +1,70 @@
+<div class="container">
+  <mat-toolbar class="logout" color="primary">
+    <span>Tickets</span>
+    <span class="example-spacer"></span>
+    <span class="welcome">Welcome, {{ Name }}</span>
+    <button mat-flat-button (click)="onLogout()" class="log_But" color="warn">
+      Logout
+    </button>
+  </mat-toolbar>
+  <br />
+  <button
+    mat-flat-button
+    (click)="openDialog()"
+    color="primary"
+    style="margin-left: 10px"
+  >
+    Raise a Ticket
+  </button>
+  <br /><br />
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="No">
+      <th mat-header-cell *matHeaderCellDef>Ticket id</th>
+      <td mat-cell *matCellDef="let element">{{ element._id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Title">
+      <th mat-header-cell *matHeaderCellDef>Title</th>
+      <td mat-cell *matCellDef="let element">{{ element.Title }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Description">
+      <th mat-header-cell *matHeaderCellDef>Description</th>
+      <td mat-cell *matCellDef="let element">{{ element.Description }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Created_By">
+      <th mat-header-cell *matHeaderCellDef>User Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.User_Name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Created_At">
+      <th mat-header-cell *matHeaderCellDef>Created At</th>
+      <td mat-cell *matCellDef="let element">{{ element.createdAt }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Edit">
+      <th mat-header-cell *matHeaderCellDef>Edit</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button (click)="onEdit(element._id)">
+          <mat-icon class="edit"> edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Delete">
+      <th mat-header-cell *matHeaderCellDef>Delete</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button>
+          <mat-icon class="delete">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions]="[5, 10]">
+  </mat-paginator>
+</div>

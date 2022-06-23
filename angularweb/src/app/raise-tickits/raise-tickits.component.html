@@ -1,0 +1,16 @@
+<header class="header">Raise a Ticket</header>
+<form #f="ngForm" name="form" (ngSubmit)="f.form.valid && onSubmit()">
+<mat-form-field appearance="outline" class="form">
+  <mat-label>Title</mat-label>
+  <input matInput placeholder="Title" name="Title" [(ngModel)]="form.Title" #Title="ngModel" />
+</mat-form-field>
+<br />
+<mat-form-field appearance="outline" class="form">
+  <mat-label>Description</mat-label>
+  <input matInput placeholder="Description" name="Description" [(ngModel)]="form.Description" #Description="ngModel"/>
+</mat-form-field>
+<br />
+<button  mat-flat-button class="Submit_But" color="primary">
+  Submit
+</button>
+</form>

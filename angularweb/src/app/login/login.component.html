@@ -1,0 +1,21 @@
+<div class="container">
+  <mat-card class="login_component">
+    <mat-icon aria-hidden="false" aria-label="Example home icon" style="width:fit-content ;font-size:xxx-large;">account_circle</mat-icon>
+    <mat-card-title> Login </mat-card-title>
+   <form #f="ngForm" name="form" (ngSubmit)="f.form.valid && onLogin()" >
+    <mat-form-field class="email" appearance="outline">
+      <mat-label>E-mail</mat-label>
+      <input type="email" matInput placeholder="Email" name="Email" [(ngModel)]="form.Email" #Email="ngModel"/>
+    </mat-form-field>
+    <br/>
+    <mat-form-field class="password" appearance="outline">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput placeholder="Password" name="Password" [(ngModel)]="form.Password" #Password="ngModel"/>
+    </mat-form-field>
+    <br/>
+    <button class="login" mat-flat-button color="primary">Login</button>
+  </form>
+    <br/><br/>
+    <a style="color: black;"routerLink="signup" >Don't have a account? Signup</a>
+  </mat-card>
+</div>
